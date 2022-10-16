@@ -1,7 +1,21 @@
 package com.day6package;
-
+import java.util.Scanner;
 public class PerfectNumber {
     public static void main(String[] args) {
-        System.out.println("");
+        int n, sum = 0;
+        System.out.println("Enter Any Number: ");
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0) {
+                sum = sum + i;
+            }
+        }
+        if (n == sum) {
+            System.out.println("Perfect Number.");
+        }
+        else {
+            System.out.println("Not Perfect Number.");
+        }
     }
 }
