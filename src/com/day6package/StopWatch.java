@@ -1,38 +1,26 @@
 package com.day6package;
-
 import java.util.Scanner;
-
 public class StopWatch {
-    long StartTimer=0;
-    long StopTimer=0;
-    long Elapsed;
-    public void start(){
-        Scanner sc=new Scanner(System.in);
-        StartTimer=System.currentTimeMillis();
-        System.out.println("Start Time is : "+StartTimer);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter '1' to start stopwatch!");
+        int time = scanner.nextInt();
+        long startTime = System.currentTimeMillis();
+        System.out.println("Stopwatch starts!");
+        System.out.println("Stopwatch Started at: "+startTime);
+        System.out.println("Enter '2' to stop stopwatch : ");
+        time = scanner.nextInt();
+        scanner.close();
+        long stopTime = System.currentTimeMillis();
+        System.out.println("Stopwatch Stop!");
+        System.out.println("Stopwatch Stopped at : "+stopTime);
+        GetElapsedTime(startTime, stopTime);
     }
-    public void stop(){
-       StopTimer=System.currentTimeMillis();
-        System.out.println("Stop Time is : "+StopTimer);
-    }
-
-    public long GetElapsedTime() {
-        Elapsed=StopTimer-StartTimer;
-        return Elapsed;
-    }
-
-    public static void main(String[] args) throws Exception{
-        StopWatch SW=new StopWatch();
-        System.out.println(" Start Time:");
-        SW.start();
-        System.out.println();
-        System.out.println(" Stop Time:");
-        SW.stop();
-        long l=SW.GetElapsedTime();
-        System.out.println();
-        System.out.println("Total Time Elapsed(in Millisec) is: " +l);
-        System.out.println();
-        System.out.println("Converting Millisec to Econds: " +(l/1000)+" Sec");;
+    public static void GetElapsedTime(long startTime, long stopTime) {
+        double elapse = stopTime - startTime;
+        System.out.println("Elapsed Time:  = " + elapse);
+        double seconds = elapse / 1000;
+        System.out.println("Elapsed Time in seconds : " + seconds);
 
     }
 }
